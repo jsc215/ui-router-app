@@ -1,0 +1,8 @@
+
+  <li *ngFor="let list of listsData">
+    <a uiSref=".list" [uiParams]="{listId: list.id}">
+      {{list.name}}
+    </a>
+  </li>
+
+<ui-view></ui-view>
