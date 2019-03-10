@@ -14,4 +14,8 @@ export class ListsService {
   getListTasks() {
     return this.http.get('api/listTasks').toPromise();
   }
+
+  createListTask(listId, task) {
+    return this.http.post(`api/listTasks/${listId},`, task).toPromise();
+  }
 }

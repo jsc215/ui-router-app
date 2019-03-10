@@ -1,8 +1,14 @@
-
-  <li *ngFor="let list of listsData">
-    <a uiSref=".list" [uiParams]="{listId: list.id}">
-      {{list.name}}
-    </a>
-  </li>
-
+<div class="container-12">
+  <div class="col-12">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let list of listsData">
+          <a
+          uiSref=".list"
+          [uiParams]="{listId: list.id}">
+          {{list.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
 <ui-view></ui-view>

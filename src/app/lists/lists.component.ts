@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListsComponent implements OnInit {
   @Input() listsData;
-  @Input() item;
+  @Input() items;
 
   // constructor(private listsService: ListsService) {}
   constructor() {
