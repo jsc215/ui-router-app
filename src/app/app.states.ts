@@ -11,7 +11,8 @@ import { transformAll } from '@angular/compiler/src/render3/r3_ast';
 export const appState = {
   name: 'app',
   url: '',
-  component: AppComponent
+  component: AppComponent,
+  // component: AppComponent
 };
 
 export const homeState = {
@@ -61,7 +62,7 @@ export const listState = {
       token: 'item',
       deps: [Transition, 'items'],
       resolveFn: (trans: Transition, items: any) =>
-        items.map((item) => item)
+        items.map((item) => item.id === trans.params().listId)
     }
   ]
 };
@@ -75,7 +76,7 @@ export const listDetailState = {
       token: 'item',
       deps: [Transition, 'items'],
       resolveFn: (trans: Transition, items: any) =>
-        items.find((selectedItem) => selectedItem.id === trans.params().itemId)
+        items.find((selectedItem) => selectedItem.id == trans.params().itemId)
     }
   ]
 };
@@ -86,7 +87,7 @@ export function getListId(listId, transition) {
 
 export const editListState = {
   name: 'lists.list.new',
-  url: '/:listId/new',
+  url: '/new',
   component: EditItemComponent,
 
   resolve: [

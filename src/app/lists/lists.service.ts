@@ -5,17 +5,21 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ListsService {
+  lists: any;
+  listTasks: any = [];
   constructor(private http: HttpClient) {}
 
   getLists() {
-    return this.http.get('api/lists').toPromise();
+    this.lists = this.http.get('api/lists').toPromise();
+    return this.lists;
   }
 
   getListTasks() {
-    return this.http.get('api/listTasks').toPromise();
+   this.listTasks = this.http.get<any>('api/listTasks').toPromise();
+   return this.listTasks;
   }
 
-  createListTask(listId, task) {
-    return this.http.post(`api/listTasks/${listId},`, task).toPromise();
+  createListTask(task) {
+    return this.http.post(`api/listTasks`, task).toPromise();
   }
 }

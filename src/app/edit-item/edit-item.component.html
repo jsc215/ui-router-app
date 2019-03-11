@@ -1,24 +1,52 @@
 <div class="container">
-  <form>
+  <!-- <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)"> -->
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit(form.value)">
+    <div class="form-group">
+      <label for="group">Group</label>
+      <input
+        id="group"
+        [contentEditable]='false'
+        formControlName="lists_id"
+        name="group"
+        type="text"
+        readonly
+        class="form-control">
+    </div>
+    <input
+      formControlName="id"
+      type="number"
+      name="id"
+      id="id">
     <div class="form-group">
       <label for="task">Task</label>
       <input
-      id="task"
-      name="task"
-      type="text"
-      class="form-control"
-      placeHolder="Task">
+        id="task"
+        formControlName="task"
+        name="task"
+        type="text"
+        class="form-control">
     </div>
     <div class="form-group">
       <label for="description">Description</label>
       <textarea
-      type="text"
-      placeHolder="text"
-      name="description"
-      id="description"
-      class='form-control'>
-    </textarea>
-  </div>
-</form>
+        type="text"
+        formControlName="description"
+        name="description"
+        id="description"
+        class='form-control'>
+      </textarea>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-success">
+      Submit
+    </button>
+  </form>
 </div>
 {{listId}}
+
+<!-- {{items|json}} -->
+{{listTasks | json}}
