@@ -11,7 +11,7 @@ import { transformAll } from '@angular/compiler/src/render3/r3_ast';
 export const appState = {
   name: 'app',
   url: '',
-  component: AppComponent,
+  component: AppComponent
   // component: AppComponent
 };
 
@@ -76,7 +76,7 @@ export const listDetailState = {
       token: 'item',
       deps: [Transition, 'items'],
       resolveFn: (trans: Transition, items: any) =>
-        items.find((selectedItem) => selectedItem.id == trans.params().itemId)
+        items.find((selectedItem) => selectedItem.id === trans.params().itemId)
     }
   ]
 };
