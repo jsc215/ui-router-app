@@ -13,7 +13,7 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
     const listTasks = [
       {
-        id: 1,
+        id: '1',
         lists_id: 'work',
         name: 'Work on ui-router app',
         description:
